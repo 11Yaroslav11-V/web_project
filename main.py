@@ -3,7 +3,7 @@ from os import abort
 
 from flask import Flask, render_template, redirect, request, make_response, jsonify
 from flask_login import LoginManager, login_user, login_required, logout_user
-from data import db_session
+from data import db_session, order_game_api
 
 from PIL import Image
 
@@ -32,6 +32,7 @@ login_manager.init_app(app)
 
 def main():
     db_session.global_init("db/games.db")
+    app.register_blueprint(order_game_api.blueprint)
     app.run()
 
 
