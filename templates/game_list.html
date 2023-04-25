@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<meta charset="UTF-8">
+<a href="sorting_company" class="btn btn-fourth">Отсортировать игры по разработчику</a>
+<a href="sorting_game_name" class="btn btn-third">Отсортировать игры по названию</a>
+<br>
+
+<h1 align="center">Список игр библиотеки</h1>
+<div class="table_container">
+    <table class="my_table">
+        <tr class="my_row">
+            <td class="title" width="720px" bgcolor="#000000" align="center">img</td>
+            <td class="title" width="250px" bgcolor="#000000" align="center">link</td>
+            <td class="title" width="150px" bgcolor="#000000" align="center">company</td>
+            <td class="title" width="250px" bgcolor="#000000" align="center">game name</td>
+            <td class="title" width="170px" bgcolor="#000000" align="center">years</td>
+            <td class="title" width="170px" bgcolor="#000000" align="center">genres</td>
+            <td class="title" width="170px" bgcolor="#000000" align="center">platform</td>
+            <td class="title" width="170px" bgcolor="#000000" align="center">age restriction</td>
+        </tr>
+    </table>
+</div>
+<br>
+{% for gm in rez %}
+<div class="table_container">
+    <table class="my_table">
+        <tr class="my_row">
+            <td class="ordinary" width="330px" bgcolor="#eeeeff"><img  src="/static/img/{{gm[0]}}"
+           alt="картинка"></td>
+            <td class="ordinary" width="120px" bgcolor="#eeeeff"><a href="{{ gm[1] }}">Ссылка на скачивание</a> </td>
+            <td class="ordinary" width="140px" bgcolor="#eeeeff" align="center">{{ gm[2] }} </td>
+            <td class="ordinary" width="150px" bgcolor="#eeeeff" align="center">{{ gm[3] }} </td>
+            <td class="ordinary" width="160px" bgcolor="#eeeeff" align="center">{{ gm[4] }} </td>
+            <td class="ordinary" width="140px" bgcolor="#eeeeff" align="center">{{ gm[5] }} </td>
+            <td class="ordinary" width="170px" bgcolor="#eeeeff" align="center">{{ gm[6] }} </td>
+            <td class="ordinary" width="170px" bgcolor="#eeeeff" align="center">{{ gm[7] }} </td>
+        </tr>
+    </table>
+</div>
+<br>
+{% endfor %}
+<br>
+
+{% endblock %}

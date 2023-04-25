@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+<br>
+<a href="index_admin" >Вернуться на страницу администратора</a>
+<br>
+<h2>В БД есть следующие записи об платформах</h2>
+<h2>(таблица платформ)</h2>
+
+<div class="table_container">
+    <table class="my_table">
+        <tr class="my_row">
+            <td class="title" width="70px" bgcolor="#dddddd">id</td>
+            <td class="title" width="170px" bgcolor="#dddddd">Платформ</td>
+        </tr>
+    </table>
+</div>
+{% for plt in result %}
+<div class="table_container">
+    <table class="my_table">
+        <tr class="my_row">
+            <td class="ordinary" width="70px" bgcolor="#eeeeff">{{ plt.id }} </td>
+            <td class="ordinary" width="170px" bgcolor="#eeeeff" >{{ plt.name_platform }} </td>
+        </tr>
+    </table>
+</div>
+{% endfor %}
+<br>
+<h2>Добавить платформу</h2>
+<br>
+<form action="" method="post">
+    {{ form.hidden_tag() }}
+
+    <p>
+        {{ form.name_platform.label }}<br>
+        {{ form.name_platform(class="form-control") }}<br>
+        {% for error in form.name_platform.errors %}
+    <p class="alert alert-danger" role="alert">
+        {{ error }}
+    </p>
+    {% endfor %}
+    </p>
+
+
+    <p>{{ form.submit(type="submit", class="btn btn-primary") }}</p>
+    {{message}}
+</form>
+{% endblock %}

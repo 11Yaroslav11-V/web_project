@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<meta charset="UTF-8">
+<a href="game_shooters" class="btn btn-secondary">Шутеры</a>
+<a href="game_strategi" class="btn btn-secondary">Стратегии</a>
+<a href="game_pesok" class="btn btn-secondary">Песочницы</a>
+<a href="game_horror" class="btn btn-secondary">Хоррор</a>
+<a href="game_fight" class="btn btn-secondary">Файтинги</a>
+
+<h1 align="center"> Список игр библиотеки</h1>
+<div class="table_container">
+    <table class="my_table">
+        <tr class="my_row">
+            <td class="title" width="720px" bgcolor="#000000" align="center">img</td>
+            <td class="title" width="250px" bgcolor="#000000" align="center">link</td>
+            <td class="title" width="150px" bgcolor="#000000" align="center">company</td>
+            <td class="title" width="250px" bgcolor="#000000" align="center">game name</td>
+            <td class="title" width="170px" bgcolor="#000000" align="center">years</td>
+            <td class="title" width="170px" bgcolor="#000000" align="center">genres</td>
+            <td class="title" width="170px" bgcolor="#000000" align="center">platform</td>
+            <td class="title" width="170px" bgcolor="#000000" align="center">age restriction</td>
+        </tr>
+    </table>
+</div>
+{% for gm in rez %}
+<div class="table_container">
+    <table class="my_table">
+        <tr class="my_row">
+            <td class="ordinary" width="330px" bgcolor="#eeeeff"><img  src="/static/img/{{gm.img}}"
+           alt="картинка"></td>
+            <td class="ordinary" width="120px" bgcolor="#eeeeff" ><a href="{{gm.link}}">Ссылка на скачивание</a> </td>
+            <td class="ordinary" width="140px" bgcolor="#eeeeff" align="center">{{ gm.company.name_company }} </td>
+            <td class="ordinary" width="150px" bgcolor="#eeeeff" align="center">{{ gm.game_name }} </td>
+            <td class="ordinary" width="160px" bgcolor="#eeeeff" align="center">{{ gm.year.name_year }} </td>
+            <td class="ordinary" width="140px" bgcolor="#eeeeff" align="center">{{ gm.genres.name_genre }} </td>
+            <td class="ordinary" width="170px" bgcolor="#eeeeff" align="center">{{ gm.platform.name_platform }} </td>
+            <td class="ordinary" width="170px" bgcolor="#eeeeff" align="center">{{ gm.age_restriction }} </td>
+        </tr>
+    </table>
+
+<br>
+
+</div>
+{% endfor %}
+<br>
+
+{% endblock %}

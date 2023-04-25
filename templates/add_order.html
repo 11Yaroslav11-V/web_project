@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+<br>
+<a href="main" class="btn btn-secondary">Главная</a>
+<a href="game_shooters" class="btn btn-secondary">Шутеры</a>
+<a href="game_strategi" class="btn btn-secondary">Стратегии</a>
+<a href="game_pesok" class="btn btn-secondary">Песочницы</a>
+<a href="game_horror" class="btn btn-secondary">Хоррор</a>
+<a href="game_fight" class="btn btn-secondary">Файтинги</a>
+<a href="avt_order" class="btn btn-secondary">Заказ игры для публикации</a>
+<br>
+<h2>Заказ Игры для Публикации</h2>
+<br>
+<p>Заказать игру - перейти на страницу заполнения <a href="avt_order_form">формы заказа</a></p>
+<br>
+<br>
+<p>Пользователям также доступны функции(REST-API)</p>
+<br>
+<p>1. Получить список всех заказанных книг (запрос GET)</p>
+<p>а) Смотреть <a href="api/order">в браузере </a></p>
+<p>или</p>
+<p>б) Написать программу на языке программирования питон и выполнить ее:</p>
+<p>from requests import get</p>
+<br>
+<p>print(get('http://localhost:5000/api/order').json())  # показать все</p>
+<br>
+<p>2. Получить информацию об одном заказе, например, номер 1 (запрос GET)</p>
+<p>а) Смотреть <a href="api/order/1">в браузере </a></p>
+<p>или</p>
+<p>б) Написать программу на языке программирования питон и выполнить ее:</p>
+<p>from requests import get</p>
+<br>
+<p>print(get('http://localhost:5000/api/order/1').json()) </p>
+<br>
+
+
+{% endblock %}

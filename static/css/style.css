@@ -1,0 +1,77 @@
+h1 {
+    color: #8B008B;
+    font-size: 60px
+}
+
+p {
+   color : #8B008B;
+   font-size: 22px
+}
+
+h2 {
+    color :#8B008B;
+}
+
+p2 {
+    color : #8B0000;
+    font-size : 26px
+}
+
+.navbar{
+    min-height:10px;
+    background-color: transparent !important;
+}
+.navbar  a{
+    font-size: 14px;
+}
+
+body {
+	background-image: url("https://catherineasquithgallery.com/uploads/posts/2021-03/1614766690_50-p-igrovie-foni-dlya-youtube-58.jpg");
+}
+
+.btn-primary {
+    background-color: #8B008B; border-color: #8B008B;
+}
+
+.btn-success {
+    background-color: #000000; border-color: #000000;
+}
+
+.container{
+        max-width: 1080px;
+    }
+
+table {
+    width: 100%;
+}
+
+.btn-secondary {
+    background-color: #8B008B; border-color: #8B008B;
+    float: center;
+}
+
+.btn-third {
+    background-color: #8B008B; border-color: #8B008B;
+    float: right;
+    color: #FFFFFF;
+}
+
+.btn-fourth {
+    background-color: #8B008B; border-color: #8B008B;
+    float: left;
+    color: #FFFFFF;
+}
+
+td {
+    background-color: transparent !important;
+    color: #8B008B
+}
+
+.navbar-brand {
+    text-align: right;
+ }
+
+p3 {
+    color: #8B008B;
+    font-size:20px;
+}

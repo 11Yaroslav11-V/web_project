@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block content %}
+<br>
+<a href="index_admin" >Вернуться на страницу администратора</a>
+<br>
+<h2>В БД есть следующие записи о играх</h2>
+<h2>(таблица игр)</h2>
+<div class="table_container">
+    <table class="my_table">
+        <tr class="my_row">
+            <td class="title" width="20px" bgcolor="#dddddd" align="center">id</td>
+            <td class="title" width="170px" bgcolor="#dddddd" align="center">id_year</td>
+            <td class="title" width="250px" bgcolor="#dddddd" align="center">game_name</td>
+            <td class="title" width="150px" bgcolor="#dddddd" align="center">id_company</td>
+            <td class="title" width="170px" bgcolor="#dddddd" align="center">id_genres</td>
+            <td class="title" width="170px" bgcolor="#dddddd" align="center">age_restriction</td>
+            <td class="title" width="170px" bgcolor="#dddddd" align="center">id_platforms</td>
+            <td class="title" width="250px" bgcolor="#dddddd" align="center">link</td>
+            <td class="title" width="200px" bgcolor="#dddddd" align="center">img</td>
+
+
+        </tr>
+    </table>
+</div>
+{% for gm in result %}
+<div class="table_container">
+    <table class="my_table">
+        <tr class="my_row">
+            <td class="ordinary" width="20px" bgcolor="#eeeeff" align="center">{{ gm.id }} </td>
+            <td class="ordinary" width="170px" bgcolor="#eeeeff" align="center">{{ gm.id_year }}
+                ( {{gm.year.name_year}} ) </td>
+            <td class="ordinary" width="250px" bgcolor="#eeeeff" align="center">{{ gm.game_name }} </td>
+            <td class="ordinary" width="150px" bgcolor="#eeeeff" align="center">{{ gm.id_company }}
+                ( {{gm.company.name_company}} )</td>
+            <td class="ordinary" width="170px" bgcolor="#eeeeff" align="center">{{ gm.id_genres }}
+                ( {{gm.genres.name_genre}} ) </td>
+            <td class="ordinary" width="170px" bgcolor="#eeeeff" align="center">{{ gm.age_restriction }} </td>
+            <td class="ordinary" width="170px" bgcolor="#eeeeff" align="center">{{ gm.id_platforms }} (
+                {{gm.platform.name_platform}} ) </td>
+            <td class="ordinary" width="250px" bgcolor="#eeeeff" >{{  gm.link }} </td>
+            <td class="ordinary" width="200px" bgcolor="#eeeeff" >{{  gm.img }} </td>
+
+        </tr>
+    </table>
+</div>
+<p><a href="/edit_game/{{ gm.id }}" >Редактирование игр  </a>
+    <a href="/delete_game/{{ gm.id }}" > Удаление игр</a> </p>
+{% endfor %}
+
+{% endblock %}

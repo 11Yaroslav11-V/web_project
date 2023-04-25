@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+<br>
+<a href="index_admin" >Вернуться на страницу администратора</a>
+<br>
+<h2>В БД есть следующие записи о компаниях</h2>
+<h2>(таблица компаний)</h2>
+<div class="table_container">
+    <table class="my_table">
+        <tr class="my_row">
+            <td class="title" width="70px" bgcolor="#dddddd">id</td>
+            <td class="title" width="170px" bgcolor="#dddddd">Название компании</td>
+        </tr>
+    </table>
+</div>
+{% for comp in result %}
+<div class="table_container">
+    <table class="my_table">
+        <tr class="my_row">
+            <td class="ordinary" width="70px" bgcolor="#eeeeff">{{ comp.id }} </td>
+            <td class="ordinary" width="170px" bgcolor="#eeeeff" >{{ comp.name_company }} </td>
+        </tr>
+    </table>
+</div>
+{% endfor %}
+<br>
+<h2>Добавить компанию</h2>
+<br>
+<form action="" method="post">
+    {{ form.hidden_tag() }}
+
+    <p>
+        {{ form.name_company.label }}<br>
+        {{ form.name_company(class="form-control") }}<br>
+        {% for error in form.name_company.errors %}
+    <p class="alert alert-danger" role="alert">
+        {{ error }}
+    </p>
+    {% endfor %}
+
+    </p>
+
+    <p>{{ form.submit(type="submit", class="btn btn-primary") }}</p>
+    {{message}}
+</form>
+{% endblock %}

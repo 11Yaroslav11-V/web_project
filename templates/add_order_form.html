@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block content %}
+<br>
+<a href="main" class="btn btn-secondary">Главная</a>
+<a href="game_shooters" class="btn btn-secondary">Шутеры</a>
+<a href="game_strategi" class="btn btn-secondary">Стратегии</a>
+<a href="game_pesok" class="btn btn-secondary">Песочницы</a>
+<a href="game_horror" class="btn btn-secondary">Хоррор</a>
+<a href="game_fight" class="btn btn-secondary">Файтинги</a>
+<a href="avt_order" class="btn btn-secondary">Заказ игры для публикации</a>
+<br>
+<h2>Заказ Игр для публикации</h2>
+<p>Прежде чем сделать заказ игры, посмотрите в таблице,
+    нет ли ее среди отказанных в публикации или находящихся в работе </p>
+
+<br>
+<div class="table_container">
+    <table class="my_table">
+        <tr class="my_row">
+            <td class="title" width="170px" bgcolor="#dddddd">Компания</td>
+            <td class="title" width="250px" bgcolor="#dddddd">Название игры</td>
+            <td class="title" width="150px" bgcolor="#dddddd">Статус</td>
+        </tr>
+    </table>
+</div>
+{% for ord in result %}
+<div class="table_container">
+    <table class="my_table">
+        <tr class="my_row">
+            <td class="ordinary" width="170px" bgcolor="#eeeeff">{{ ord.company }} </td>
+            <td class="ordinary" width="250px" bgcolor="#eeeeff" >{{ ord.game_name }} </td>
+            <td class="ordinary" width="150px" bgcolor="#eeeeff" >{{ ord.status }} </td>
+        </tr>
+    </table>
+</div>
+{% endfor %}
+<br>
+<h2>Заказать игру для публикации</h2>
+<br>
+<form action="" method="post">
+    {{ form.hidden_tag() }}
+
+    <p>
+        {{ form.company.label }}<br>
+        {{ form.company(class="form-control") }}<br>
+        {% for error in form.company.errors %}
+    <p class="alert alert-danger" role="alert">
+        {{ error }}
+    </p>
+    {% endfor %}
+    </p>
+    <p>
+        {{ form.game_name.label }}<br>
+        {{ form.game_name(class="form-control") }}<br>
+        {% for error in form.game_name.errors %}
+    <p class="alert alert-danger" role="alert">
+        {{ error }}
+    </p>
+    {% endfor %}
+    </p>
+    <p>
+        {{ form.status.label }}<br>
+        {{ form.status(class="form-control") }}<br>
+        {% for error in form.status.errors %}
+    <p class="alert alert-danger" role="alert">
+        {{ error }}
+    </p>
+    {% endfor %}
+    </p>
+    <p>{{ form.submit(type="submit", class="btn btn-secondary") }}</p>
+    {{message}}
+</form>
+{% endblock %}

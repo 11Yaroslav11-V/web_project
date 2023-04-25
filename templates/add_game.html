@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+{% block content %}
+<br>
+<a href="http://127.0.0.1:5000/index_admin" >Вернуться на страницу администратора</a>
+<br>
+
+<br>
+<h2>Добавить/Редактировать игру</h2>
+<br>
+<form action="" method="post">
+    {{ form.hidden_tag() }}
+
+    <p>
+        {{ form.id_year.label }}<br>
+        {{ form.id_year(class="form-control") }}<br>
+        {% for error in form.id_year.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.game_name.label }}<br>
+        {{ form.game_name(class="form-control") }}<br>
+        {% for error in form.game_name.errors %}
+            <p content="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.id_company.label }}<br>
+        {{ form.id_company(class="form-control") }}<br>
+        {% for error in form.id_company.errors %}
+            <p content="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.id_genres.label }}<br>
+        {{ form.id_genres(class="form-control") }}<br>
+        {% for error in form.id_genres.errors %}
+            <p content="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.age_restriction.label }}<br>
+        {{ form.age_restriction(class="form-control") }}<br>
+        {% for error in form.age_restriction.errors %}
+            <p content="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.id_platforms.label }}<br>
+        {{ form.id_platforms(class="form-control") }}<br>
+        {% for error in form.id_platforms.errors %}
+            <p content="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.link.label }}<br>
+        {{ form.link(class="form-control") }}<br>
+        {% for error in form.link.errors %}
+            <p content="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.img.label }}<br>
+        {{ form.img(class="form-control") }}<br>
+        {% for error in form.img.errors %}
+            <p content="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+
+
+    <p>{{ form.submit(type="submit", class="btn btn-primary") }}</p>
+    {{message}}
+</form>
+{% endblock %}

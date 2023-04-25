@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block content %}
+<br>
+<h2>Страница администратора БД</h2>
+
+<br>
+<h2>Работа с играми</h2>
+<br>
+<p><a href="addcompany" >Просмотр таблицы и компании </a>  в таблицу companys</p>
+<br>
+<p><a href="addgenre" >Просмотр таблицы и добавление жанра </a>  в таблицу genres</p>
+<br>
+<p><a href="addyear" >Просмотр таблицы и добавление годов </a>  в таблицу years</p>
+<br>
+<p><a href="addplatforms" >Просмотр таблицы и добавление платформ </a>  в таблицу platforms</p>
+<br>
+<h2>Добавление/ редактирование/ удаление книги (таблица games)</h2>
+<br>
+<p><a href="view_game" >    1. Просмотр таблицы games (игры) </a> с возможностью редактирования и удаления записей </p>
+<br>
+<p><a href="load_files" >    2. Загрузка файлов изображений для таблицы games (игры) </a>
+    (размер изображений при сохранении будет изменен на 300 х 280)</p>
+<br>
+<p><a href="add_game" >    3. Добавление игр </a>  в таблицу games</p>
+<br>
+<h2>Работа с запросами пользователей на публикацию игр(REST-API)</h2>
+<p>1. Получить список всех заказов, информацию об одном заказе (запрос GET)</p>
+<p>(data/api_test.py)</p>
+<p>from requests import get</p>
+<p>print(get('http://localhost:5000/api/order').json())  # показать все</p>
+<p>print(get('http://localhost:5000/api/order/1').json())  # запись 1 </p>
+<p>print(get('http://localhost:5000/api/order/500').json())  # несуществующая запись </p>
+<p>print(get('http://localhost:5000/api/order/abc').json())  # ошибочный запрос </p>
+<br>
+
+<p>2. Создать новый заказ (запрос POST)</p>
+<p>(data/api_test2.py)</p>
+<p>from requests import get, post</p>
+<p>print(post('http://localhost:5000/api/order').json())  # empty request (пустой)</p>
+<p>print(post('http://localhost:5000/api/order', json={'company': 4A GAMES'}).json())  # неполный  Bad request </p>
+<p>print(post('http://localhost:5000/api/order', json={'company': '4A GAMES', 'game_name': 'Metro Redux',
+    'status': 'заказ'}).json())  # верный </p>
+<p>print(get('http://localhost:5000/api/order').json()) </p>
+<br>
+
+<p>3. Изменить статус заказа (запрос PUT)</p>
+<p>готово - игра опубликована; в процессе - будет опубликована очень скоро;
+    отказ - нет прав на публикацию игры</p>
+<p>(data/api_test3.py)</p>
+<p>from requests import get, put</p>
+<p>print(get('http://localhost:5000/api/order/3').json())  # запись id=3</p>
+<p>print(put('http://localhost:5000/api/order/3').json())  # Empty request </p>
+<p>print(put('http://localhost:5000/api/order/3', json={'status': 'в процессе'}).json())  # изменим статус записи</p>
+<p>print(get('http://localhost:5000/api/order.3').json()) </p>
+<br>
+<p>4. Удалить заказ (запрос DELETE)</p>
+<p>(data/api_test4.py)</p>
+<p>from requests import get, delete</p>
+<p>print(get('http://localhost:5000/api/order').json())  # смотреть все заказы</p>
+<p>print(delete('http://localhost:5000/api/order/6998').json())  # нет записи с номером 6998, чтобы удалить</p>
+<p>print(delete('http://localhost:5000/api/order/3').json())  # удалить существующую запись 3</p>
+<p>print(get('http://localhost:5000/api/order').json())  # посмотреть результат удаления</p>
+<br>
+<br>
+<br>
+<h2>Перейти в список игр</h2>
+<br>
+<p><a href="game_list" >Игры </a> </p>
+
+{% endblock %}
